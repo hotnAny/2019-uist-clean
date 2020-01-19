@@ -3,7 +3,8 @@
 \usepackage{booktabs}
 \usepackage{todonotes}
 \usepackage{enumitem}
-
+\usepackage{multirow}
+\usepackage{graphicx}
 %\renewcommand{\refname}{\centerline{References cited}}
 
 \newcommand{\xx}[0]
@@ -16,13 +17,31 @@
 %\texttt{\small #1}}
 
 % label, file, width, caption, 
-\newcommand{\fg}[4]{
+\newcommand{\fgw}[4]{
 \begin{figure*}[t]
 \centering
 \includegraphics[width=#3\textwidth]{figures/#2}
 \caption{#4}
 \label{fg:#1}
 \end{figure*}
+}
+
+\newcommand{\fg}[4]{
+\begin{figure}[t]
+\centering
+\includegraphics[width=#3\columnwidth]{figures/#2}
+\caption{#4}
+\label{fg:#1}
+\end{figure}
+}
+
+\newcommand{\fgh}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#3\columnwidth]{figures/#2}
+\caption{#4}
+\label{fg:#1}
+\end{figure}
 }
 
 %\newcommand{\teaser}[2]{
@@ -34,7 +53,9 @@
 %\end{figure}
 %}
 
-\newcommand{\fgref}[1]{Fig.~\ref{fg:#1}}
+\newcommand{\fgref}[1]{Figure~\ref{fg:#1}}
+\newcommand{\tbref}[1]{Table~\ref{tb:#1}}
+\newcommand{\secref}[1]{\S\ref{sec:#1}}
 
 \newcommand{\sssec}[1]{\subsubsection{#1} \vspace{-0.5em}}
 
@@ -52,4 +73,11 @@
 \newcommand{\insec}[1]
 {{\fontfamily{cmss}\selectfont \textit{#1} }}
 
+\newcommand{\sref}[1]
+{{\S}\ref{sec:#1}}
+
 \newcommand{\degree}{$^\circ$}
+
+\providecommand{\td}[1]{\todo[inline]{#1}}
+
+\renewcommand{\arraystretch}{1.5}
